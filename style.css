@@ -1,14 +1,15 @@
 :root {
-    --color-primary: #4b69fd;
-    --color-secondary: #fff9eb;
-    --color-tertiary: #c4c4c4;
-    --color-button: #fe652b;
+    --color-primary: #f3ebd3;
+    --color-secondary: #4a6868;
+    --color-tertiary: #293c40;
+    --color-button: #f3ebd3;
     --color-button-hover: #e55720;
-    --color-text: #444444;
-    --color-white: #ffffff;
+    --color-text: #f0ddc2;
+    --color-white: #344f4f;
     --color-success: #05df05;
     --color-danger: #ff4136;
     --color-warning: #ffd700;
+    --font-harry: 'Harry Potter', sans-serif;
 }
 
 /* Estilos generales */
@@ -25,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Inter", sans-serif;
+    overflow-x: hidden;
 }
 
 .main-content {
@@ -40,14 +42,15 @@ body {
 .header-banner {
     flex: 40%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 40px 0 20px;
+    gap: 30px;
 }
 
 .header-banner img {
-    max-width: 150px;
+    max-width: 300px;
     margin-top: 15px;
     animation: float 3s ease-in-out infinite;
 }
@@ -65,6 +68,14 @@ body {
         transform: translateY(0px);
     }
 }
+
+.random-gif {
+    position: absolute;
+    width: 150px; /* Tamaño de la imagen */
+    height: 150px; /* Tamaño de la imagen */
+    transform-origin: center;
+    z-index: -1;
+  }
 
 /* Sección de entrada */
 .input-section {
@@ -145,7 +156,7 @@ body {
 /* Títulos */
 .main-title {
     font-size: 48px;
-    font-family: "Merriweather", serif;
+    font-family: var(--font-harry);
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
@@ -396,6 +407,14 @@ button:active {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     animation: slideIn 0.4s ease;
 }
+
+.bottom-right-img {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px;  /* Distancia desde el lado derecho */
+    width: 100px; /* Tamaño de la imagen */
+    height: auto;
+  }
 
 @keyframes slideIn {
     from {

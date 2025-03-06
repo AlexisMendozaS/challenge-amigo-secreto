@@ -227,3 +227,33 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarLista()
 })
 
+// Ruta de la imagen GIF
+const gifSrc = 'assets/pasos2.gif';
+
+// Función para generar un valor aleatorio dentro de un rango
+function getRandomValue(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// Crear 10 imágenes aleatorias
+for (let i = 0; i < 10; i++) {
+  const img = document.createElement('img');
+  img.src = gifSrc;
+  img.alt = 'Imagen Aleatoria';
+  img.classList.add('random-gif');
+
+  // Posicionar aleatoriamente la imagen en la pantalla
+  const x = getRandomValue(0, window.innerWidth - 100); // Coordenada X
+  const y = getRandomValue(0, window.innerHeight - 100); // Coordenada Y
+
+  // Rotación aleatoria entre 0 y 360 grados
+  const rotation = getRandomValue(0, 360);
+
+  img.style.left = `${x}px`;
+  img.style.top = `${y}px`;
+  img.style.transform = `rotate(${rotation}deg)`; // Aplicar rotación
+
+  // Añadir la imagen al body
+  document.body.appendChild(img);
+}
+
