@@ -18,6 +18,16 @@
         </header>
         
         <section class="input-section">
+            <div class="game-mode-selector">
+                <button id="modo-individual" class="mode-button active" onclick="cambiarModo('individual')">Modo Individual</button>
+                <button id="modo-multijugador" class="mode-button" onclick="cambiarModo('multijugador')">Modo Multijugador</button>
+            </div>
+
+            <div id="multijugador-config" class="multijugador-config hidden">
+                <label for="num-jugadores">¿Cuántas personas participarán?</label>
+                <input type="number" id="num-jugadores" min="2" value="2" class="input-number">
+            </div>
+
             <h2 class="section-title">Digite el nombre de sus amigos</h2>
             <div class="input-wrapper">
                 <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre">
@@ -25,17 +35,49 @@
             </div>
            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+            
+            <div class="result-container" id="result-container">
+                <h3 class="result-title">Tu amigo secreto es:</h3>
+                <div id="resultado" class="result-list" aria-live="polite"></div>
+            </div>
 
             <div class="button-container">
                 <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
                     <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
                     Sortear amigo
                 </button>
+                <button class="button-clear" onclick="vaciarLista()" aria-label="Vaciar lista">
+                    <img src="assets/delete_outline.png" alt="Ícono para vaciar lista">
+                    Vaciar lista
+                </button>
             </div>
         </section>
     </main>
 
+    <!-- Modal para instrucciones del modo multijugador -->
+    <div id="modal-instrucciones" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="cerrarModal('modal-instrucciones')">&times;</span>
+            <h2>Instrucciones - Modo Multijugador</h2>
+            <p>En este modo, cada persona podrá sortear un amigo secreto.</p>
+            <p>Los nombres sorteados permanecerán en la lista pero no podrán ser seleccionados nuevamente.</p>
+            <p>Cada participante debe mirar su resultado sin que los demás lo vean.</p>
+            <button class="modal-button" onclick="cerrarModal('modal-instrucciones')">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar el resultado del sorteo -->
+    <div id="modal-resultado" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="cerrarModal('modal-resultado')">&times;</span>
+            <h2>¡Tu amigo secreto es!</h2>
+            <div id="modal-amigo-secreto" class="modal-result"></div>
+            <p class="modal-instruction">Muestra esto solo a la persona que está sorteando</p>
+            <button class="modal-button" onclick="cerrarModal('modal-resultado')">Cerrar</button>
+        </div>
+    </div>
+
     <script src="app.js" defer></script>
 </body>
 </html>
+
