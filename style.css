@@ -51,7 +51,7 @@ body {
 
 .header-banner img {
     max-width: 300px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     animation: float 3s ease-in-out infinite;
 }
 
@@ -531,7 +531,7 @@ button:active {
     }
 
     .modal-content {
-        margin: 20% auto;
+        /* margin: 20% auto; */
         padding: 20px;
     }
 
